@@ -1,0 +1,24 @@
+<h1>Enrollments</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>StudentID</th>
+            <th>SectionID</th>
+            <th>Date</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each enrollments}}
+        <tr>
+            <td>{{this.enrollmentID}}</td>
+            <td>{{this.studentID}}</td>
+            <td>{{this.sectionID}}</td>
+            <td>{{this.enrollmentDate}}</td>
+            <td>{{this.enrollmentStatus}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

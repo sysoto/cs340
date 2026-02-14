@@ -1,0 +1,22 @@
+<h1>Instructors</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Employment Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each instructors}}
+        <tr>
+            <td>{{this.instructorID}}</td>
+            <td>{{this.instructorName}}</td>
+            <td>{{this.email}}</td>
+            <td>{{this.employmentType}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

@@ -1,0 +1,49 @@
+<h1>Students</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>First</th>
+            <th>Last</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each students}}
+        <tr>
+            <td>{{this.studentID}}</td>
+            <td>{{this.firstName}}</td>
+            <td>{{this.lastName}}</td>
+            <td>{{this.email}}</td>
+            <td>{{this.enrollmentStatus}}</td>
+            <td>
+                <button>Delete</button>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+<h2>Add New Student</h2>
+
+<form>
+    <label>First Name:</label>
+    <input type="text" name="firstName" required>
+
+    <label>Last Name:</label>
+    <input type="text" name="lastName" required>
+
+    <label>Email:</label>
+    <input type="email" name="email" required>
+
+    <label>Status:</label>
+    <select name="enrollmentStatus">
+        <option value="active">active</option>
+        <option value="inactive">inactive</option>
+    </select>
+
+    <button type="submit">Submit</button>
+</form>

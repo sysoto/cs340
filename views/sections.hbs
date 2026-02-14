@@ -1,0 +1,30 @@
+<h1>Sections</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>CourseID</th>
+            <th>InstructorID</th>
+            <th>Term</th>
+            <th>Days</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Capacity</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each sections}}
+        <tr>
+            <td>{{this.sectionID}}</td>
+            <td>{{this.courseID}}</td>
+            <td>{{this.instructorID}}</td>
+            <td>{{this.termLabel}}</td>
+            <td>{{this.meetingDays}}</td>
+            <td>{{this.startTime}}</td>
+            <td>{{this.endTime}}</td>
+            <td>{{this.capacityLimit}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
