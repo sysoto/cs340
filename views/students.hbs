@@ -1,14 +1,17 @@
 <h1>Students</h1>
 
+
+<!-- Browse Students -->
+
 <table>
     <thead>
         <tr>
-            <th>ID</th>
-            <th>First</th>
-            <th>Last</th>
+            <th>Student ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
             <th>Email</th>
             <th>Status</th>
-            <th>Action</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -20,16 +23,22 @@
             <td>{{this.email}}</td>
             <td>{{this.enrollmentStatus}}</td>
             <td>
-                <button>Delete</button>
+                <form method="POST" action="/students/delete">
+                    <input type="hidden" name="studentID" value="{{this.studentID}}">
+                    <button type="submit">Delete</button>
+                </form>
             </td>
         </tr>
         {{/each}}
     </tbody>
 </table>
 
+
+<!-- Add Student -->
+
 <h2>Add New Student</h2>
 
-<form>
+<form method="POST" action="/students/add" class="cuForm">
     <label>First Name:</label>
     <input type="text" name="firstName" required>
 
@@ -40,10 +49,37 @@
     <input type="email" name="email" required>
 
     <label>Status:</label>
-    <select name="enrollmentStatus">
-        <option value="active">active</option>
-        <option value="inactive">inactive</option>
+    <select name="enrollmentStatus" required>
+        <option value="active">Active</option>
+        <option value="inactive">Inactive</option>
     </select>
 
-    <button type="submit">Submit</button>
+    <button type="submit">Add Student</button>
+</form>
+
+
+<!-- Update Student -->
+
+<h2>Update Student</h2>
+
+<form method="POST" action="/students/update" class="cuForm">
+    <label>Select Student:</label>
+    <select name="studentID" required>
+        {{#each students}}
+        <option value="{{this.studentID}}">
+            {{this.firstName}} {{this.lastName}}
+        </option>
+        {{/each}}
+    </select>
+
+    <label>New Email:</label>
+    <input type="email" name="email" required>
+
+    <label>New Status:</label>
+    <select name="enrollmentStatus" required>
+        <option value="active">Active</option>
+        <option value="inactive">Inactive</option>
+    </select>
+
+    <button type="submit">Update Student</button>
 </form>

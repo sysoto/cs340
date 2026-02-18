@@ -1,11 +1,14 @@
 <h1>Enrollments</h1>
 
+
+<!-- Browse Enrollments -->
+
 <table>
     <thead>
         <tr>
-            <th>ID</th>
-            <th>StudentID</th>
-            <th>SectionID</th>
+            <th>Enrollment ID</th>
+            <th>Student</th>
+            <th>Section</th>
             <th>Date</th>
             <th>Status</th>
         </tr>
@@ -14,7 +17,7 @@
         {{#each enrollments}}
         <tr>
             <td>{{this.enrollmentID}}</td>
-            <td>{{this.studentID}}</td>
+            <td>{{this.studentName}}</td>
             <td>{{this.sectionID}}</td>
             <td>{{this.enrollmentDate}}</td>
             <td>{{this.enrollmentStatus}}</td>
@@ -22,3 +25,68 @@
         {{/each}}
     </tbody>
 </table>
+
+
+<!-- Add Enrollment -->
+
+<h2>Add Enrollment</h2>
+
+<form method="POST" action="/enrollments/add" class="cuForm">
+
+    <label>Student:</label>
+    <select name="studentID" required>
+        {{#each students}}
+        <option value="{{this.studentID}}">
+            {{this.firstName}} {{this.lastName}}
+        </option>
+        {{/each}}
+    </select>
+
+    <label>Section:</label>
+    <select name="sectionID" required>
+        {{#each sections}}
+        <option value="{{this.sectionID}}">
+            Section {{this.sectionID}}
+        </option>
+        {{/each}}
+    </select>
+
+    <label>Date:</label>
+    <input type="date" name="enrollmentDate" required>
+
+    <label>Status:</label>
+    <select name="enrollmentStatus" required>
+        <option value="enrolled">Enrolled</option>
+        <option value="withdrawn">Withdrawn</option>
+    </select>
+
+    <button type="submit">Add Enrollment</button>
+</form>
+
+
+<!-- Update Enrollment -->
+
+<h2>Update Enrollment</h2>
+
+<form method="POST" action="/enrollments/update" class="cuForm">
+
+    <label>Select Enrollment:</label>
+    <select name="enrollmentID" required>
+        {{#each enrollments}}
+        <option value="{{this.enrollmentID}}">
+            Enrollment #{{this.enrollmentID}}
+        </option>
+        {{/each}}
+    </select>
+
+    <label>New Section:</label>
+    <select name="sectionID" required>
+        {{#each sections}}
+        <option value="{{this.sectionID}}">
+            Section {{this.sectionID}}
+        </option>
+        {{/each}}
+    </select>
+
+    <button type="submit">Update Enrollment</button>
+</form>
