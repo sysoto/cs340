@@ -56,7 +56,7 @@ app.post('/students/add', async function (req, res) {
     const { firstName, lastName, email, enrollmentStatus } = req.body;
 
     await db.query(
-        'INSERT INTO Students (firstName, lastName, email, enrollmentStatus) VALUES (?, ?, ?, ?);',
+        'CALL sp_InsertStudent(?, ?, ?, ?);',
         [firstName, lastName, email, enrollmentStatus]
     );
 
@@ -68,7 +68,7 @@ app.post('/students/delete', async function (req, res) {
     const { studentID } = req.body;
 
     await db.query(
-        'DELETE FROM Students WHERE studentID = ?;',
+        'CALL sp_DeleteStudent(?);',
         [studentID]
     );
 
@@ -80,8 +80,8 @@ app.post('/students/update', async function (req, res) {
     const { studentID, email, enrollmentStatus } = req.body;
 
     await db.query(
-        'UPDATE Students SET email = ?, enrollmentStatus = ? WHERE studentID = ?;',
-        [email, enrollmentStatus, studentID]
+        'CALL sp_UpdateStudent(?, ?, ?);',
+        [studentID, email, enrollmentStatus]
     );
 
     res.redirect('/students');
@@ -148,7 +148,7 @@ app.post('/enrollments/add', async function (req, res) {
     const { studentID, sectionID, enrollmentDate, enrollmentStatus } = req.body;
 
     await db.query(
-        'INSERT INTO Enrollments (studentID, sectionID, enrollmentDate, enrollmentStatus) VALUES (?, ?, ?, ?);',
+        'CALL sp_InsertEnrollment(?, ?, ?, ?);',
         [studentID, sectionID, enrollmentDate, enrollmentStatus]
     );
 
@@ -160,13 +160,24 @@ app.post('/enrollments/update', async function (req, res) {
     const { enrollmentID, sectionID } = req.body;
 
     await db.query(
-        'UPDATE Enrollments SET sectionID = ? WHERE enrollmentID = ?;',
-        [sectionID, enrollmentID]
+        'CALL sp_UpdateEnrollment(?, ?);',
+        [enrollmentID, sectionID]
     );
 
     res.redirect('/enrollments');
 });
 
+// RESET DATABASE
+app.get('/reset', async function (req, res) {
+    try {
+        await db.query('CALL sp_ResetDatabase();');
+        console.log('Database reset successfully.');
+        res.redirect('/');
+    } catch (error) {
+        console.error('Error resetting database:', error);
+        res.status(500).send('Reset failed.');
+    }
+});
 
 // ########################################
 // ########## LISTENER
