@@ -11,6 +11,7 @@
             <th>Section</th>
             <th>Date</th>
             <th>Status</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -21,6 +22,13 @@
             <td>{{this.sectionID}}</td>
             <td>{{this.enrollmentDate}}</td>
             <td>{{this.enrollmentStatus}}</td>
+
+            <td>
+                <form method="POST" action="/enrollments/delete">
+                    <input type="hidden" name="enrollmentID" value="{{this.enrollmentID}}">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
         </tr>
         {{/each}}
     </tbody>

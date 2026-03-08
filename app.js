@@ -167,6 +167,18 @@ app.post('/enrollments/update', async function (req, res) {
     res.redirect('/enrollments');
 });
 
+// Delete Enrollment (M:N DELETE)
+app.post('/enrollments/delete', async function (req, res) {
+    const { enrollmentID } = req.body;
+
+    await db.query(
+        'CALL sp_DeleteEnrollment(?);',
+        [enrollmentID]
+    );
+
+    res.redirect('/enrollments');
+});
+
 // RESET DATABASE
 app.get('/reset', async function (req, res) {
     try {

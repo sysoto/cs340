@@ -1,47 +1,134 @@
-h1,
+/* Global Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Body */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    padding-bottom: 40px;
+}
+
+/* Navigation Bar */
+nav {
+    background: linear-gradient(to right, #1f2937, #374151);
+    padding: 18px 32px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 24px;
+    font-weight: 500;
+    transition: opacity 0.2s ease;
+}
+
+nav a:hover {
+    opacity: 0.7;
+}
+
+/* Special RESET Button */
+nav a[href="/reset"] {
+    background-color: #ef4444;
+    padding: 8px 14px;
+    border-radius: 6px;
+}
+
+/* Headings */
+h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
 h2 {
-    margin-left: 16px;
+    margin-top: 40px;
+    margin-bottom: 16px;
+    font-size: 22px;
 }
 
+/* Tables */
 table {
+    width: 90%;
+    margin: 0 32px 32px 32px;
     border-collapse: collapse;
-    margin-left: 32px;
-}
-
-th,
-td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: center;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 th {
-    background-color: #f2f2f2;
+    background-color: #111827;
+    color: white;
+    padding: 14px;
+    text-align: left;
+    font-weight: 500;
 }
 
-tr:nth-child(even) {
-    background-color: #f9f9f9;
+td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #eee;
 }
 
+tr:hover {
+    background-color: #f3f4f6;
+}
+
+/* Forms */
 .cuForm {
-    margin-left: 32px;
+    margin: 0 32px 32px 32px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 input,
 select {
-    margin-bottom: 4px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
     margin-right: 12px;
+    margin-bottom: 12px;
 }
 
-nav {
-    background-color: #cecece;
-    padding: 16px;
+/* Buttons */
+button,
+input[type="submit"] {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease;
 }
 
-a {
-    margin-left: 16px;
+button:hover,
+input[type="submit"]:hover {
+    background-color: #1d4ed8;
+}
+
+/* Delete Buttons */
+.delete-btn {
+    background-color: #dc2626;
+}
+
+.delete-btn:hover {
+    background-color: #b91c1c;
+}
+
+.pageContainer {
+    padding: 40px 32px;
 }
 
 .homepageDescription {
-    margin-left: 32px;
+    margin-top: 12px;
+    font-size: 16px;
+    color: #555;
 }

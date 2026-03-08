@@ -202,3 +202,16 @@ BEGIN
 END //
 
 DELIMITER ;
+
+-- Delete Enrollment
+
+DROP PROCEDURE IF EXISTS sp_DeleteEnrollment;
+DELIMITER //
+
+CREATE PROCEDURE sp_DeleteEnrollment(IN p_enrollmentID INT)
+BEGIN
+    DELETE FROM Enrollments
+    WHERE enrollmentID = p_enrollmentID;
+END //
+
+DELIMITER ;
