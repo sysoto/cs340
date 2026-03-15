@@ -8,6 +8,10 @@
 // Description: Basic Express server setup and Handlebars configuration
 // were adapted from the provided starter application. Mods made from starter code.
 // All database routes and entity pages were developed by the project team.
+// Express Documentation Referenced:
+// https://expressjs.com/
+// MySQL2 Documentation Referenced:
+// https://github.com/sidorares/node-mysql2
 // =====================================================
 
 

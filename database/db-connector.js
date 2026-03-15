@@ -1,3 +1,13 @@
+// =====================================================
+// Citation:
+// Date Retrieved: 02/11/2026
+// Adapted from: CS340 NodeJS Starter Application (Canvas)
+// Author: Oregon State University
+//
+// MySQL2 Documentation Referenced:
+// https://github.com/sidorares/node-mysql2
+// =====================================================
+
 // Get an instance of mysql we can use in the app
 let mysql = require('mysql2')
 

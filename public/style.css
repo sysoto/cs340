@@ -1,3 +1,11 @@
+/*
+Citation:
+Base structure influenced by CS340 starter template.
+
+CSS Documentation Referenced:
+https://developer.mozilla.org/en-US/docs/Web/CSS
+*/
+
 /* Global Reset */
 * {
     box-sizing: border-box;
